@@ -89,7 +89,7 @@ $current_url = $config['app']['url'] . '/product.php?slug=' . urlencode($product
     <script src="js/app.js"></script>
     <script>
         document.addEventListener('DOMContentLoaded', () => {
-            generateQRCode("<?= $current_url ?>");
+            generateQRCode(<?= json_encode($current_url, JSON_HEX_TAG | JSON_HEX_AMP | JSON_HEX_APOS | JSON_HEX_QUOT) ?>);
         });
     </script>
 </body>
