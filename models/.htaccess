@@ -1,1 +1,9 @@
-Require all denied
+Options -Indexes
+
+<FilesMatch "\.(glb|gltf|usdz)$">
+	Require all granted
+</FilesMatch>
+
+<FilesMatch "\.(php|phtml|phar)$">
+	Require all denied
+</FilesMatch>

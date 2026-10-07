@@ -12,5 +12,5 @@ try {
 } catch (PDOException $e) {
     error_log("Database Connection Error: " . $e->getMessage());
     http_response_code(500);
-    exit("Database unavailable. Please check the database configuration.");
+    exit("");
 }
