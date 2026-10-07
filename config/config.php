@@ -24,6 +24,6 @@ return [
         'host' => getenv('DB_HOST') ?: 'localhost',
         'name' => getenv('DB_NAME') ?: ($is_local_request ? 'ar_furniture' : 'synergy1_justinwong_ar_furniture'),
         'user' => getenv('DB_USER') ?: ($is_local_request ? 'root' : 'synergy1_yenping'),
-        'pass' => getenv('DB_PASS') !== false ? getenv('DB_PASS') : ($is_local_request ? '' : 'R.zb0ZwEuGZ}*w2')
+        'pass' => getenv('DB_PASS') !== false ? getenv('DB_PASS') : ($is_local_request ? '' : 'R.zb0ZwEuGZ}*fW2')
     ]
 ];
