@@ -43,6 +43,35 @@ $ar_url = $current_url . '&ar=1';
         <div class="row <?= $ar_mode ? 'g-0' : 'g-5' ?>">
             <div class="<?= $ar_mode ? 'col-12' : 'col-lg-7' ?>">
                 <div class="card border-0 shadow-sm rounded-4 overflow-hidden position-relative <?= $ar_mode ? 'ar-launch-card' : '' ?>">
+                    <?php if ($ar_mode): ?>
+                    <section class="camera-preview" aria-label="Camera preview for <?= htmlspecialchars($product['name']) ?>">
+                        <video id="room-camera" autoplay muted playsinline></video>
+                        <div class="camera-prompt" id="camera-prompt">
+                            <i class="fa-solid fa-camera fa-2x mb-3" aria-hidden="true"></i>
+                            <p class="camera-eyebrow mb-2">ROOM CAMERA</p>
+                            <h1 class="h3 fw-bold mb-2"><?= htmlspecialchars($product['name']) ?></h1>
+                            <p class="camera-message mb-4" id="camera-message" role="status" aria-live="polite">Start the camera to preview your room.</p>
+                            <button class="btn btn-light px-4" id="start-camera" type="button">
+                                <i class="fa-solid fa-video me-2" aria-hidden="true"></i>Start camera preview
+                            </button>
+                            <p class="camera-requirement mt-3 mb-0">Camera access requires permission and a secure HTTPS connection.</p>
+                        </div>
+                        <div class="camera-live-ui" id="camera-live-ui" hidden>
+                            <div class="camera-live-topline">
+                                <span><span class="camera-live-indicator"></span>Live room preview</span>
+                                <div class="camera-actions">
+                                    <button class="btn btn-dark btn-sm" id="switch-camera" type="button" aria-label="Switch camera" title="Switch camera">
+                                        <i class="fa-solid fa-camera-rotate" aria-hidden="true"></i>
+                                    </button>
+                                    <button class="btn btn-dark btn-sm" id="stop-camera" type="button" aria-label="Stop camera" title="Stop camera">
+                                        <i class="fa-solid fa-xmark" aria-hidden="true"></i>
+                                    </button>
+                                </div>
+                            </div>
+                            <p class="camera-message camera-live-message mb-0" id="camera-live-message" role="status" aria-live="polite"></p>
+                        </div>
+                    </section>
+                    <?php else: ?>
                     <model-viewer
                         src="<?= htmlspecialchars($product['glb_path']) ?>"
                         <?php if (!empty($product['usdz_path'])): ?>ios-src="<?= htmlspecialchars($product['usdz_path']) ?>"<?php endif; ?>
@@ -58,6 +87,7 @@ $ar_url = $current_url . '&ar=1';
                             <i class="fa-solid fa-cube me-2"></i><?= $ar_mode ? 'Start AR Preview' : 'View in AR' ?>
                         </button>
                     </model-viewer>
+                    <?php endif; ?>
                 </div>
             </div>
             <?php if (!$ar_mode): ?>
