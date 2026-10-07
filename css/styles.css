@@ -16,3 +16,16 @@ body {
 model-viewer {
     --poster-color: transparent;
 }
+
+.ar-launch {
+    overflow: hidden;
+}
+
+.ar-launch-page .ar-launch-card {
+    height: calc(100dvh - 88px);
+    min-height: 380px;
+}
+
+.ar-launch-card model-viewer {
+    min-height: 0;
+}
